@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import { Card, CardContent, Button, Grid } from "@material-ui/core";
-import login from "../store/actions/login";
+import { login } from "../store/actions/login";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -33,7 +33,6 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // console.log(formData);
 
         login(formData);
 
