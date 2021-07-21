@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import { Card, CardContent, Button, Grid } from "@material-ui/core";
 import { login } from "../store/actions/login";
+import { connect } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -14,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Login = () => {
+const Login = ({ login }) => {
     const classes = useStyles();
 
     const [formData, setFormData] = React.useState({
@@ -91,4 +92,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default connect(null, { login })(Login);
