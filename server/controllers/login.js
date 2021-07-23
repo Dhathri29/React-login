@@ -1,6 +1,6 @@
 const db = require("../config/db");
 
-const addDetails = async (req, res) => {
+const login = async (req, res) => {
     const { userName, password } = req.body;
 
     await db.query(
@@ -9,6 +9,16 @@ const addDetails = async (req, res) => {
     res.status(201).json({ success: true, data: req.body });
 };
 
+const register = async (req, res) => {
+    const { userName, password } = req.body;
+
+    await db.query(
+        `insert into register(userName,password) values('${userName}','${password}')`
+    );
+    res.status(201).json({ success: true, data: req.body });
+};
+
 module.exports = {
-    addDetails,
+    login,
+    register,
 };
